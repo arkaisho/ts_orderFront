@@ -10,7 +10,7 @@
         <label for="senha">Senha</label>
         <input type="password" class="form-control" v-model="user.password" />
       </div>
-      <button type="submit" class="btn btn-primary brn-block">Logar</button>
+      <button type="submit" class="btn btn-primary brn-block">Entrar</button>
     </form>
   </div>
 </template>
