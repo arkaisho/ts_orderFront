@@ -1,46 +1,45 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
-import http from '@/http'
+import Vuex from "vuex";
+import Vue from "vue";
+import http from "@/http";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
     token: null,
-    user: {}
-}
+    user: {},
+};
 
 const mutations = {
     DEFINIR_USUARIO_LOGADO(state, { token, user }) {
-        state.token = token
-        state.user = user
+        state.token = token;
+        state.user = user;
     },
     DESLOGAR_USUARIO(state) {
-        state.token = null
-        state.user = {}
-    }
-}
+        state.token = null;
+        state.user = {};
+    },
+};
 
 const actions = {
     efetuarLogin({ commit }, user) {
         return new Promise((resolve, reject) => {
-            http.post('/login', user)
-                .then(response => {
-                    commit('DEFINIR_USUARIO_LOGADO', {
+            http.post("/login", user)
+                .then((response) => {
+                    commit("DEFINIR_USUARIO_LOGADO", {
                         token: response.data.access_token,
-                        user: response.data.user
-                    })
-                    resolve(response.data)
+                        user: response.data.user,
+                    });
+                    resolve(response.data);
                 })
-                .catch(err => {
-                    console.log(err)
-                    reject(err)
-                })
-        })
-    }
-}
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    },
+};
 
 export default new Vuex.Store({
     state,
     mutations,
-    actions
-})
+    actions,
+});
