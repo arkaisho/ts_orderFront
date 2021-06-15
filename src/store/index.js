@@ -26,7 +26,7 @@ const actions = {
             http.post("/login", user)
                 .then((response) => {
                     commit("DEFINIR_USUARIO_LOGADO", {
-                        token: response.data.access_token,
+                        token: response.data.token,
                         user: response.data.user,
                     });
                     resolve(response.data);
