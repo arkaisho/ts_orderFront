@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '../store'
 
 const http = axios.create({
-    baseURL: 'http://ts-confectionery.herokuapp.com',
+    baseURL: 'https://ts-confectionery.herokuapp.com',
     headers:{
         "Content-Type": "application/json"
     }
