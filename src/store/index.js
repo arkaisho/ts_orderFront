@@ -36,6 +36,18 @@ const actions = {
                 });
         });
     },
+
+    get(){
+        return new Promise((resolve, reject) => {
+            http.get()
+                .then(res => {
+                    console.log(res)
+                    resolve(res.data);
+
+                })
+                .catch(err => reject(err))
+        })
+    }
 };
 
 export default new Vuex.Store({
