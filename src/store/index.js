@@ -26,7 +26,7 @@ const actions = {
             http.post("/login", user)
                 .then((response) => {
                     commit("DEFINIR_USUARIO_LOGADO", {
-                        token: response.data.access_token,
+                        token: response.data.token,
                         user: response.data.user,
                     });
                     resolve(response.data);
@@ -36,6 +36,18 @@ const actions = {
                 });
         });
     },
+
+    get(){
+        return new Promise((resolve, reject) => {
+            http.get()
+                .then(res => {
+                    console.log(res)
+                    resolve(res.data);
+
+                })
+                .catch(err => reject(err))
+        })
+    }
 };
 
 export default new Vuex.Store({
