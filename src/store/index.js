@@ -41,7 +41,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             http.get()
                 .then(res => {
-                    console.log(res)
+                    // console.log(res)
                     resolve(res.data);
 
                 })
