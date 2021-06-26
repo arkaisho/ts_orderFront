@@ -26,10 +26,12 @@ export default {
     };
   },
   methods: {
-    efetuarLogin() {
+     efetuarLogin() {
       this.$store
         .dispatch("efetuarLogin", this.user)
-        .then(() => this.$router.push({ name: "main" }));
+        .then(() => {
+          this.$router.push({ name: "main" });
+        });
     }
   }
 };

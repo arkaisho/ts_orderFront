@@ -7,6 +7,7 @@ Vue.use(Vuex);
 const state = {
     token: null,
     user: {},
+    pedidos: []
 };
 
 const mutations = {
@@ -18,6 +19,9 @@ const mutations = {
         state.token = null;
         state.user = {};
     },
+    DEFINIR_PEDIDOS(state, pedidos) {
+        state.pedidos = pedidos;
+    }
 };
 
 const actions = {
@@ -37,11 +41,13 @@ const actions = {
         });
     },
 
-    get(){
+    get({ commit }){
         return new Promise((resolve, reject) => {
             http.get()
                 .then(res => {
-                    console.log(res)
+                    commit("DEFINIR_PEDIDOS", {
+                        pedidos: res.data
+                    });
                     resolve(res.data);
 
                 })
