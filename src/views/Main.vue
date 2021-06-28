@@ -23,7 +23,6 @@ export default {
     mounted(){
         this.$store.dispatch("get").then(()=> {
             this.pedidos = this.$store.state.pedidos.pedidos;
-                        console.log(this.pedidos)
         })
         
     },
