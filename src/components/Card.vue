@@ -1,14 +1,4 @@
 <template>
-<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" :data-target="'#collapse'+id" aria-expanded="true" >
-          {{ clientName }} / {{ deliveryDate }}
-        </button>
-      </h2>
-    </div>
-
     <div :id="'collapse'+id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="container-card">
         <div class="description-container">
@@ -22,8 +12,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -86,6 +74,6 @@ export default {
     width: 80%;
   }
   .icon {
-    width: 100%;
+    width: 32px;
   }
 </style>
