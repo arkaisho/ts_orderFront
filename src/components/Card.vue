@@ -10,9 +10,16 @@
     </div>
 
     <div :id="'collapse'+id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
+      <div class="container-card">
+        <div class="description-container">
           <p>massa: {{ pasta }}</p>
-          <p>cobertura: {{ filling }}</p>
+          <p>recheio: {{ filling }}</p>
+          <p>cobertura: {{ cobertura }}</p>
+          <p>observação: {{ observation }}</p>
+        </div>
+        <div class="container-icon">
+          <img @click="editar" class="icon" src="../../assets/edit-solid.svg" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +30,10 @@
 export default {
     name:'Card',
     props:{
-        id:{},
+        id:{
+          type: String,
+          required: true
+        },
         clientName:{
             type: String
         },
@@ -48,14 +58,34 @@ export default {
         whatsApp:{
             type:String
         },
-
-
-
         cobertura:{
             type:String
         },
 
     },
+    methods:{
+      editar(){
+        this.$router.push({ name: "editar" });
+      }
+    }
 
 }
 </script>
+<style scoped>
+  .container-card{
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+  }
+  .container-icon{
+    width: 20%;
+    display: flex;
+    align-items: center;
+  }
+  .description-container {
+    width: 80%;
+  }
+  .icon {
+    width: 100%;
+  }
+</style>

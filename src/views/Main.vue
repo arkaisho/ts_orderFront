@@ -1,5 +1,11 @@
 <template>
-    <div >
+    <div>
+        <div >
+            <h3>Pedidos</h3>
+        </div>
+        <div>
+            <input type="search" name="" id="">
+        </div>
         <div v-bind:key="pedido.id" v-for="pedido in pedidos">
             <Card
                 :id="pedido.id"
@@ -11,14 +17,18 @@
                 :filling="pedido.filling"
             />
         </div>
+        <div>
+            <img src="../../assets/plus-circle-solid.svg" alt="">
+        </div>
     </div>    
 </template>
 <script>
 import Card from '../components/Card.vue';
+
 export default {
     name:'Main',
     components:{
-        Card,
+        Card
     },
     mounted(){
         this.$store.dispatch("get").then(()=> {
@@ -36,10 +46,11 @@ export default {
 </script>
 <style scoped>
     div {
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: auto;
     }
 </style>
