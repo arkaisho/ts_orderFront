@@ -65,7 +65,6 @@ export default {
     mounted(){
         this.$store.dispatch("get").then(()=> {
             this.pedidos = this.$store.state.pedidos.pedidos;
-                        console.log(this.pedidos)
         })
         
     },
@@ -84,5 +83,4 @@ export default {
         bottom: 36px;
         width: 80px;
     }
-
 </style>
