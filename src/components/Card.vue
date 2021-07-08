@@ -1,62 +1,33 @@
 <template>
-    <div :id="'collapse'+id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div :id="'collapse'+pedido.id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="container-card">
         <div class="description-container">
-          <p>massa: {{ pasta }}</p>
-          <p>recheio: {{ filling }}</p>
-          <p>cobertura: {{ cobertura }}</p>
-          <p>observação: {{ observation }}</p>
+          <p>massa: {{ pedido.pasta }}</p>
+          <p>recheio: {{ pedido.filling }}</p>
+          <p>cobertura: {{ pedido.cobertura }}</p>
+          <p>observação: {{ pedido.observation }}</p>
         </div>
-        <div class="container-icon">
-          <img @click="editar" class="icon" src="../../assets/edit-solid.svg" alt="">
+        <div class="container-icon btn-add btn" type="button" data-toggle="modal" :data-target="'#editModal'+pedido.id">
+          <img class="icon" src="../../assets/edit-solid.svg" alt="">
         </div>
+        <!-- Modal -->
+        <EditModal :pedido="pedido"/>
       </div>
     </div>
 </template>
 
 <script>
+import EditModal from '../components/EditModal.vue';
 export default {
     name:'Card',
     props:{
-        id:{
-          type: String,
-          required: true
-        },
-        clientName:{
-            type: String
-        },
-        cover:{
-            type:String
-        },
-        deliveryDate:{
-            type:String
-        },
-        filling:{
-            type:String
-        },
-        observation:{
-            type:String
-        },
-        pasta:{
-            type:String
-        },
-        telphone:{
-            type:String,
-        },
-        whatsApp:{
-            type:String
-        },
-        cobertura:{
-            type:String
-        },
-
+        pedido:{
+          type:Object
+        }
     },
-    methods:{
-      editar(){
-        this.$router.push({ name: "editar" });
-      }
-    }
-
+    components:{
+      EditModal,
+    },
 }
 </script>
 <style scoped>
