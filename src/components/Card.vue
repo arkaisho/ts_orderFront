@@ -19,7 +19,7 @@ export default {
     name:'Card',
     props:{
         id:{
-          type: String,
+          type: Number,
           required: true
         },
         clientName:{
