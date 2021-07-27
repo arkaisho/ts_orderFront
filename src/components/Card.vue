@@ -21,6 +21,38 @@ import EditModal from '../components/EditModal.vue';
 export default {
     name:'Card',
     props:{
+        id:{
+          type: Number,
+          required: true
+        },
+        clientName:{
+            type: String
+        },
+        cover:{
+            type:String
+        },
+        deliveryDate:{
+            type:String
+        },
+        filling:{
+            type:String
+        },
+        observation:{
+            type:String
+        },
+        pasta:{
+            type:String
+        },
+        telphone:{
+            type:String,
+        },
+        whatsApp:{
+            type:String
+        },
+        cobertura:{
+            type:String
+        },
+
         pedido:{
           type:Object
         }

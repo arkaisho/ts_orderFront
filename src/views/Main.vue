@@ -4,9 +4,9 @@
             <h3>Pedidos</h3>
         </div>
         <div>
-            <input type="search" name="" id="">
+            <input type="search" v-model="searchString" name="" id="">
         </div>
-        <div v-bind:key="pedido.id" v-for="pedido in pedidos">
+        <div v-bind:key="pedido.id" v-for="pedido in searchResults">
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -64,9 +64,22 @@ export default {
     },
     data(){
         return{
-            pedidos: []
+          searchString:"",
+          pedidos: [],
+          pedidosFiltrados: []
         }
+    },
+  computed: {
+    searchResults(){
+      if(this.searchString){
+      return this.pedidos.filter((item)=>{
+        return  item.clientName.toLowerCase().includes(this.searchString.toLowerCase())
+      })
+      }else{
+        return this.pedidos;
+      }
     }
+  }
 }
 </script>
 <style scoped>
