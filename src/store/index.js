@@ -59,9 +59,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             http.put(`/update/${pedido.id}`,pedido)
                 .then(res => {
-                    console.log(res)
                     resolve(res.data);
-
                 })
                 .catch(err => reject(err))
         })
