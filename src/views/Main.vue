@@ -17,13 +17,7 @@
                       </h2>
                     </div>
                     <Card
-                        :id="pedido.id"
-                        :clientName="pedido.clientName"
-                        :telphone="pedido.telphone"
-                        :deliveryDate="pedido.deliveryDate"
-                        :observation="pedido.observation"
-                        :pasta="pedido.pasta"
-                        :filling="pedido.filling"
+                      :pedido="pedido"
                     />
                 </div>
             </div>  
@@ -76,11 +70,10 @@ export default {
 }
 </script>
 <style scoped>
-
     .btn-add {
         position: absolute;
-        right: 24px;
-        bottom: 36px;
+        bottom: 0;
         width: 80px;
-    }
+     }
+
 </style>
