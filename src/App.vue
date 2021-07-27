@@ -21,4 +21,8 @@ export default {
     outline: none;
     box-sizing: border-box;
   }
+  #app{
+    min-height: 100vh;
+    position: relative;
+  }
 </style>
