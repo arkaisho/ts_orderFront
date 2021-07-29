@@ -1,19 +1,22 @@
 import Vuex from "vuex";
 import Vue from "vue";
 import http from "@/http";
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex);
 
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage
+  })
+
 const state = {
     token: null,
-    user: {},
     pedidos: []
 };
 
 const mutations = {
-    DEFINIR_USUARIO_LOGADO(state, { token, user }) {
+    DEFINIR_USUARIO_LOGADO(state, { token }) {
         state.token = token;
-        state.user = user;
     },
     DESLOGAR_USUARIO(state) {
         state.token = null;
@@ -31,7 +34,6 @@ const actions = {
                 .then((response) => {
                     commit("DEFINIR_USUARIO_LOGADO", {
                         token: response.data.token,
-                        user: response.data.user,
                     });
                     resolve(response.data);
                 })
@@ -70,4 +72,6 @@ export default new Vuex.Store({
     state,
     mutations,
     actions,
+    plugins: [vuexLocal.plugin]
+
 });
