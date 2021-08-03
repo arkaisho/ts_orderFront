@@ -38,7 +38,7 @@ export default {
         Card,
         AddModal
     },
-    watch(){
+    mounted(){
         this.$store.dispatch("get").then(()=> {
             this.pedidos = this.$store.state.pedidos.pedidos;
         })
