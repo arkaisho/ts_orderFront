@@ -11,48 +11,20 @@
           <img class="icon" src="../../assets/edit-solid.svg" alt="">
         </div>
         <!-- Modal -->
+        <div>
+          <button @click="deletar">deletar</button>
+        </div>
         <EditModal :pedido="pedido"/>
       </div>
     </div>
 </template>
 
 <script>
+
 import EditModal from '../components/EditModal.vue';
 export default {
     name:'Card',
     props:{
-        id:{
-          type: Number,
-          required: true
-        },
-        clientName:{
-            type: String
-        },
-        cover:{
-            type:String
-        },
-        deliveryDate:{
-            type:String
-        },
-        filling:{
-            type:String
-        },
-        observation:{
-            type:String
-        },
-        pasta:{
-            type:String
-        },
-        telphone:{
-            type:String,
-        },
-        whatsApp:{
-            type:String
-        },
-        cobertura:{
-            type:String
-        },
-
         pedido:{
           type:Object
         }
@@ -60,6 +32,12 @@ export default {
     components:{
       EditModal,
     },
+    methods:{
+      async deletar(){
+        await this.$store.dispatch("delete", this.pedido.id);
+        location.reload(true);
+      }
+    }
 }
 </script>
 <style scoped>

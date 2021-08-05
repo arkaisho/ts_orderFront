@@ -1,5 +1,8 @@
 <template>
     <div>
+        <button type="button" class="btn-add btn" data-toggle="modal" data-target="#addModal">
+            <img src="../../assets/plus-circle-solid.svg" alt="">
+        </button>
         <div >
             <h3>Pedidos</h3>
         </div>
@@ -22,39 +25,18 @@
                 </div>
             </div>  
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn-add btn" data-toggle="modal" data-target="#staticBackdrop">
-            <img src="../../assets/plus-circle-solid.svg" alt="">
-        </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <AddModal />
     </div>
 </template>
 <script>
 import Card from '../components/Card.vue';
+import AddModal from '../components/AddModal.vue';
 
 export default {
     name:'Main',
     components:{
-        Card
+        Card,
+        AddModal
     },
     mounted(){
         this.$store.dispatch("get").then(()=> {
@@ -86,7 +68,9 @@ export default {
     .btn-add {
         position: absolute;
         bottom: 0;
+        right: 0;
         width: 80px;
+        z-index: 50;
+        margin-top: auto;
      }
-
 </style>
