@@ -33,8 +33,9 @@ export default {
       EditModal,
     },
     methods:{
-      deletar(){
-        this.$store.dispatch("delete", this.pedido.id);
+      async deletar(){
+        await this.$store.dispatch("delete", this.pedido.id);
+        location.reload(true);
       }
     }
 }

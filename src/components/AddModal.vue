@@ -13,13 +13,17 @@
                 <span>Cliente</span>
                 <input type="text" v-model="pedido.clientName" placeholder="Nome do Cliente">
                  <span>Data de Entrega</span>
-                <input type="text" v-model="pedido.deliveryDate" placeholder="Data de Entrega">
+                <input type="date" v-model="pedido.deliveryDate" placeholder="Data de Entrega">
                 <span>Massa</span>
                 <input type="text" v-model="pedido.pasta" placeholder="Nomde da Massa">
                 <span>Recheio</span>
                 <input type="text" v-model="pedido.filling" placeholder="Nome do Recheio">
                 <span>cobertura</span>
-                <input type="text" v-model="pedido.cobertura" placeholder="Nome da Cobertura">
+                <input type="text" v-model="pedido.cover" placeholder="Nome da Cobertura">
+                <span>Preço</span>
+                <input type="text" v-model="pedido.price" placeholder="Nome da Cobertura">
+                <span>whatsApp</span>
+                <input type="text" v-model="pedido.whatsApp" placeholder="Nome da Cobertura">
                 <span>Observação</span>
                 <input type="text" v-model="pedido.observation" placeholder="Nome da Observação">
               </form>
@@ -38,19 +42,22 @@ export default {
         return{
             pedido : {
                 clientName:'',
-                deliveryDate:'',
+                deliveryDate:"08/20/2021",
+                telphone:'',
                 pasta:'',
                 filling:'',
-                cobertura:'',
-                observation:''
-
-
+                cover:'',
+                observation:'',
+                whatsApp:'',
+                price:0
             }
         }
     },
     methods:{
-       salvar(){
-         this.$store.dispatch("post", this.pedido);
+       async salvar(){
+         await this.$store.dispatch("post", this.pedido);
+         
+         location.reload(true);
       }
     }
 }
