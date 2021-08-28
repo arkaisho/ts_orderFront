@@ -59,4 +59,7 @@ export default {
   .salvar{
     background-color:#ef9002;
   }
+  ::placeholder{
+    text-align: left
+  }
 </style>

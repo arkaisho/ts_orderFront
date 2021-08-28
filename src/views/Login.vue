@@ -1,15 +1,15 @@
 <template>
-  <div class="container">
-    <img src="../../assets/logo_login.png" alt="">
+  <div class="container" style="padding:0 30px 0 30px">
+    <img class="img-login" src="../../assets/logo_login.png" alt="">
     <form @submit.prevent="efetuarLogin">
       <div class="form-group">
-        <input type="text" class="form-control" v-model="user.username" placeholder="Login"/>
+        <input type="text" class="form-control input-login" v-model="user.username" placeholder="Login"/>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" v-model="user.password" placeholder="Senha"/>
+        <input type="password" class="form-control input-login" v-model="user.password" placeholder="Senha"/>
       </div>
       <div class="text-center"> 
-        <button type="submit" class="btn btn-primary btn-rounded">Entrar</button>
+        <button type="submit" class="btn btn-login btn-primary btn-rounded">Entrar</button>
       </div>
     </form>
   </div>
@@ -38,11 +38,8 @@ export default {
 </script>
 <style>
   #app{
-    color: #ef9002;
-    padding-left: 30px;
-    padding-right: 30px;
   }
-  .btn{
+  .btn-login{
     border-color: #ef9002 !important;
     background-color: #ef9002 !important;
     border-radius: 20px !important;
@@ -51,7 +48,7 @@ export default {
     max-width: 120px !important;
 
   }
-  img{
+  .img-login{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -63,11 +60,11 @@ export default {
   ::placeholder{
     text-align: center
   }
-  input{
-    border: 2px solid #ccc !important;
-    border-radius: 4px !important;
+  .input-login{
+    text-align:center;
+    border: 1px solid #ccc !important;
     border-color: #ef9002 !important;
-    border-radius: 20px !important
+    border-radius: 20px !important;
   }
 
 </style>
