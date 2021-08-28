@@ -20,7 +20,7 @@
             />
         </div>
         <div v-bind:key="pedido.id" v-for="pedido in searchResults">
-            <div class="accordion" id="accordionExample" >
+            <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div
                         class="card-header"
