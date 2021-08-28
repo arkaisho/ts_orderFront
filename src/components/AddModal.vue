@@ -4,8 +4,8 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="addModalLabel">Cadastrar</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+              <span aria-hidden="true" >&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -20,16 +20,16 @@
                 <input type="text" v-model="pedido.filling" placeholder="Nome do Recheio">
                 <span>cobertura</span>
                 <input type="text" v-model="pedido.cover" placeholder="Nome da Cobertura">
+                <span>Observação</span>
+                <input type="text" v-model="pedido.observation" placeholder="Nome da Observação">
                 <span>Preço</span>
                 <input type="text" v-model="pedido.price" placeholder="Nome da Cobertura">
                 <span>whatsApp</span>
                 <input type="text" v-model="pedido.whatsApp" placeholder="Nome da Cobertura">
-                <span>Observação</span>
-                <input type="text" v-model="pedido.observation" placeholder="Nome da Observação">
               </form>
           </div>
           <div class="modal-footer">
-            <button @click="salvar" type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Salvar</button>
+            <button @click="salvar" type="button" class="btn btn-primary salvar" data-dismiss="modal" aria-label="Close">Salvar</button>
           </div>
         </div>
       </div>
@@ -62,11 +62,15 @@ export default {
     }
 }
 </script>
+
 <style scoped>
   .pedido-form{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     padding: 8px;
+  }
+  .salvar{
+    background-color:#ef9002;
   }
 </style>

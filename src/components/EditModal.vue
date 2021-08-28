@@ -13,7 +13,7 @@
                 <span>Cliente</span>
                 <input type="text" v-model="pedido.clientName" placeholder="Nome do Cliente">
                  <span>Data de Entrega</span>
-                <input type="text" v-model="pedido.deliveryDate" placeholder="Data de Entrega">
+                <input type="date" v-model="pedido.deliveryDate" placeholder="Data de Entrega">
                 <span>Massa</span>
                 <input type="text" v-model="pedido.pasta" placeholder="Nomde da Massa">
                 <span>Recheio</span>
@@ -22,11 +22,15 @@
                 <input type="text" v-model="pedido.cobertura" placeholder="Nome da Cobertura">
                 <span>Observação</span>
                 <input type="text" v-model="pedido.observation" placeholder="Nome da Observação">
+                <span>Preço</span>
+                <input type="text" v-model="pedido.price" placeholder="Nome da Cobertura">
+                <span>whatsApp</span>
+                <input type="text" v-model="pedido.whatsApp" placeholder="Nome da Cobertura">
               </form>
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-            <button @click="atualizar" type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Salvar</button>
+            <button @click="atualizar" type="button" class="btn btn-primary salvar" data-dismiss="modal" aria-label="Close">Salvar</button>
           </div>
         </div>
       </div>
@@ -51,5 +55,8 @@ export default {
     flex-direction: column;
     margin: 0 auto;
     padding: 8px;
+  }
+  .salvar{
+    background-color:#ef9002;
   }
 </style>
