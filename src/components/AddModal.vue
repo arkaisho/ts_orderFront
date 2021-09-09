@@ -23,9 +23,9 @@
                 <span>Observação</span>
                 <input type="text" v-model="pedido.observation" placeholder="Nome da Observação">
                 <span>Preço</span>
-                <input type="text" v-model="pedido.price" placeholder="Nome da Cobertura">
-                <span>whatsApp</span>
-                <input type="text" v-model="pedido.whatsApp" placeholder="Nome da Cobertura">
+                <input type="text" v-model="pedido.price" placeholder="Preço">
+                <span>WhatsApp</span>
+                <input type="text" v-model="pedido.whatsApp" placeholder="WhatsApp">
               </form>
           </div>
           <div class="modal-footer">
